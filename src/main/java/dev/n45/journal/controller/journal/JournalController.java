@@ -18,7 +18,7 @@ public class JournalController {
   @PostMapping("/journals")
   public ResponseEntity<Journal> createJournal(@RequestBody JournalRequest journalRequest, @RequestHeader(name = "X-User-Id") String userId) {
 
-      var response = journalService.createJournal(journalRequest, userId);
+       var response = journalService.createJournal(journalRequest, userId);
 
     return new ResponseEntity<>(response, HttpStatus.CREATED);
   }
