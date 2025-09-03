@@ -51,7 +51,7 @@ spotless {
         googleJavaFormat('1.17.0')
         removeUnusedImports()
         importOrder 'java', 'javax', 'org', 'com', ''
-        licenseHeader '/* (C) 2025 My Project */'
+        licenseHeader '/* (C) 2025 Naga Srinath */'
     }
 }
 
