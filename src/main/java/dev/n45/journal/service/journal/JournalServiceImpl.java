@@ -25,6 +25,7 @@ public class JournalServiceImpl implements JournalService {
         Journal.builder()
             .title(journalRequest.getTitle())
             .content(journalRequest.getContent())
+                .mood(journalRequest.getMood())
             .userId(userId)
             .build();
 

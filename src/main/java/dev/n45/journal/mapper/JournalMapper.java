@@ -19,7 +19,7 @@ public class JournalMapper {
         .id(journal.getExternalId())
         .title(journal.getTitle())
         .content(journal.getContent())
-        .mood("HAPPY")
+        .mood(journal.getMood())
         .build();
   }
 

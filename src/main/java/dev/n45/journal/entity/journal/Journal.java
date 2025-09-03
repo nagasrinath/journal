@@ -12,6 +12,8 @@ import dev.n45.journal.entity.BaseEntity;
 import dev.n45.journal.enums.Mood;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.*;
@@ -45,7 +47,8 @@ public class Journal extends BaseEntity {
   @Column(name = "`content`", columnDefinition = "text", nullable = false)
   private String content;
 
-  @Column(name = "`mood`", columnDefinition = "varchar(50)")
+  @Enumerated(EnumType.STRING)
+  @Column(name = "`mood`", columnDefinition = "varchar(50)", nullable = false)
   private Mood mood;
 
   @Column(name = "`user_id`", columnDefinition = "varchar(50)", nullable = false)
