@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface JournalRepository extends JpaRepository<Journal, Long> {
     Journal findJournalByExternalId(String externalId);
+
+    Iterable<Journal> getJournalsByUserId(String userId);
 }

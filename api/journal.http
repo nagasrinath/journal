@@ -1,0 +1,18 @@
+###get all journals:
+GET http://localhost:8000/journals
+X-User-Id: 0466c55a-d0b6-47e9-9de1-0ef4593388bf
+
+###create journal:
+POST http://localhost:8000/journals
+X-User-Id: 0466c55a-d0b6-47e9-9de1-0ef4593388bf
+Content-Type: application/json
+
+{
+    "title": "Hello",
+    "content": "Hello, World!",
+    "mood": "SAD"
+}
+
+###get journal by id:
+GET http://localhost:8000/journals/d865d772-5d57-41ef-87bc-ba3a08329686
+X-User-Id: 0466c55a-d0b6-47e9-9de1-0ef4593388bf

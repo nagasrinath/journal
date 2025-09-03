@@ -34,4 +34,9 @@ public class JournalServiceImpl implements JournalService {
     public Journal getJournalById(String id) {
         return journalRepository.findJournalByExternalId(id);
     }
+
+    @Override
+    public Iterable<Journal> getAllJournals(String userId) {
+        return journalRepository.getJournalsByUserId(userId);
+    }
 }

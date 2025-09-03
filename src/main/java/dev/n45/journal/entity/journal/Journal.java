@@ -1,5 +1,7 @@
 package dev.n45.journal.entity.journal;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import dev.n45.journal.entity.BaseEntity;
 import dev.n45.journal.enums.Mood;
 import jakarta.persistence.Column;
@@ -28,6 +30,7 @@ import java.util.UUID;
           name = "external_id_uq_idx",
           columnNames = {"`external_id`"})
     })
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @Where(clause = "`active`=1")
 public class Journal extends BaseEntity {
 

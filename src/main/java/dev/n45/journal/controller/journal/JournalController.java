@@ -19,7 +19,12 @@ public class JournalController {
   }
 
   @GetMapping("/journals/{id}")
-  public Journal getJournalById(@PathVariable String id) {
+  public Journal getJournalById(@PathVariable String id, @RequestHeader(name = "X-User-Id") String userId) {
     return journalService.getJournalById(id);
+  }
+
+  @GetMapping("/journals")
+  public Iterable<Journal> getAllJournals(@RequestHeader(name = "X-User-Id") String userId) {
+      return journalService.getAllJournals(userId);
   }
 }
