@@ -1,9 +1,11 @@
+/* (C) 2025 My Project */
 package dev.n45.journal.datatype.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 import dev.n45.journal.enums.Mood;
 import lombok.*;
 
@@ -18,7 +20,7 @@ import lombok.*;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class JournalRequest {
-    private String title;
-    private String content;
-    private Mood mood;
+  private String title;
+  private String content;
+  private Mood mood;
 }

@@ -1,9 +1,13 @@
+/* (C) 2025 My Project */
 package dev.n45.journal.entity.journal;
+
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.Where;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.github.f4b6a3.ulid.Ulid;
 import com.github.f4b6a3.ulid.UlidCreator;
+
 import dev.n45.journal.entity.BaseEntity;
 import dev.n45.journal.enums.Mood;
 import jakarta.persistence.Column;
@@ -12,10 +16,6 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.Where;
-
-import java.util.UUID;
 
 @ToString
 @AllArgsConstructor

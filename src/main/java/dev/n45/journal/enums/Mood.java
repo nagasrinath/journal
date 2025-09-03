@@ -1,3 +1,4 @@
+/* (C) 2025 My Project */
 package dev.n45.journal.enums;
 
 import lombok.Getter;

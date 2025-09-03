@@ -1,8 +1,9 @@
+/* (C) 2025 My Project */
 package dev.n45.journal.datatype.response;
 
 public class JournalResponse {
-    private String id;
-    private String title;
-    private String content;
-    private String mood;
+  private String id;
+  private String title;
+  private String content;
+  private String mood;
 }
