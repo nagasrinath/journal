@@ -2,6 +2,8 @@ package dev.n45.journal.entity.journal;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.github.f4b6a3.ulid.Ulid;
+import com.github.f4b6a3.ulid.UlidCreator;
 import dev.n45.journal.entity.BaseEntity;
 import dev.n45.journal.enums.Mood;
 import jakarta.persistence.Column;
@@ -52,6 +54,9 @@ public class Journal extends BaseEntity {
   @Override
   public void onCreate() {
     super.onCreate();
-    this.setExternalId(UUID.randomUUID().toString());
+
+    String journalId = UlidCreator.getUlid().toString();
+
+    this.setExternalId(journalId);
   }
 }
