@@ -1,11 +1,14 @@
-/* (C) 2025 My Project */
+/* (C) 2025 Naga Srinath */
 package dev.n45.journal.service.journal;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dev.n45.journal.datatype.request.JournalRequest;
 import dev.n45.journal.entity.journal.Journal;
+import dev.n45.journal.mapper.JournalMapper;
 import dev.n45.journal.repository.journal.JournalRepository;
 import lombok.extern.slf4j.Slf4j;
 
@@ -37,8 +40,10 @@ public class JournalServiceImpl implements JournalService {
     return journalRepository.findJournalByExternalIdAndUserId(id, userId);
   }
 
+  JournalMapper journalMapper = new JournalMapper();
+
   @Override
-  public Iterable<Journal> getAllJournals(String userId) {
+  public List<Journal> getAllJournals(String userId) {
     return journalRepository.getJournalsByUserId(userId);
   }
 }

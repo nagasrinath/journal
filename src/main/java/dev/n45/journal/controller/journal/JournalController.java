@@ -1,4 +1,4 @@
-/* (C) 2025 My Project */
+/* (C) 2025 Naga Srinath */
 package dev.n45.journal.controller.journal;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import dev.n45.journal.datatype.request.JournalRequest;
+import dev.n45.journal.datatype.response.JournalResponse;
 import dev.n45.journal.entity.journal.Journal;
+import dev.n45.journal.mapper.JournalMapper;
 import dev.n45.journal.service.journal.JournalService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,7 +36,11 @@ public class JournalController {
   }
 
   @GetMapping("/journals")
-  public Iterable<Journal> getAllJournals(@RequestHeader(name = "X-User-Id") String userId) {
-    return journalService.getAllJournals(userId);
+  public ResponseEntity<JournalResponse> getAllJournals(
+      @RequestHeader(name = "X-User-Id") String userId) {
+    JournalResponse response =
+        new JournalMapper().toJournalResponseList(journalService.getAllJournals(userId));
+
+    return new ResponseEntity<>(response, HttpStatus.OK);
   }
 }

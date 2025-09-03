@@ -1,5 +1,7 @@
-/* (C) 2025 My Project */
+/* (C) 2025 Naga Srinath */
 package dev.n45.journal.service.journal;
+
+import java.util.List;
 
 import dev.n45.journal.datatype.request.JournalRequest;
 import dev.n45.journal.entity.journal.Journal;
@@ -9,5 +11,5 @@ public interface JournalService {
 
   Journal getJournalById(String id, String userId);
 
-  Iterable<Journal> getAllJournals(String userId);
+  List<Journal> getAllJournals(String userId);
 }

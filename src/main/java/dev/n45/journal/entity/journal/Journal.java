@@ -1,4 +1,4 @@
-/* (C) 2025 My Project */
+/* (C) 2025 Naga Srinath */
 package dev.n45.journal.entity.journal;
 
 import org.hibernate.annotations.DynamicUpdate;

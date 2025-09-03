@@ -1,5 +1,7 @@
-/* (C) 2025 My Project */
+/* (C) 2025 Naga Srinath */
 package dev.n45.journal.repository.journal;
+
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -10,7 +12,7 @@ import dev.n45.journal.entity.journal.Journal;
 public interface JournalRepository extends JpaRepository<Journal, Long> {
   Journal findJournalByExternalId(String externalId);
 
-  Iterable<Journal> getJournalsByUserId(String userId);
+  List<Journal> getJournalsByUserId(String userId);
 
   Journal findJournalByExternalIdAndUserId(String externalId, String userId);
 }

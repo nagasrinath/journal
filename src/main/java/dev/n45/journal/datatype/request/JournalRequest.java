@@ -1,4 +1,4 @@
-/* (C) 2025 My Project */
+/* (C) 2025 Naga Srinath */
 package dev.n45.journal.datatype.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
