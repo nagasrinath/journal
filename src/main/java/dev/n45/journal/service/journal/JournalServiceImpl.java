@@ -3,7 +3,6 @@ package dev.n45.journal.service.journal;
 
 import java.util.List;
 
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +10,7 @@ import dev.n45.journal.datatype.request.JournalRequest;
 import dev.n45.journal.entity.journal.Journal;
 import dev.n45.journal.mapper.JournalMapper;
 import dev.n45.journal.repository.journal.JournalRepository;
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -26,7 +26,7 @@ public class JournalServiceImpl implements JournalService {
         Journal.builder()
             .title(journalRequest.getTitle())
             .content(journalRequest.getContent())
-                .mood(journalRequest.getMood())
+            .mood(journalRequest.getMood())
             .userId(userId)
             .build();
 
@@ -52,6 +52,6 @@ public class JournalServiceImpl implements JournalService {
   @Override
   @Transactional
   public void deleteJournalById(String id, String userId) {
-      journalRepository._deleteJournal(id, userId);
+    journalRepository._deleteJournal(id, userId);
   }
 }
