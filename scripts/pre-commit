@@ -1,0 +1,30 @@
+#!/bin/bash
+set -e
+
+# Get staged files (only modified or added, not deleted)
+staged_files=$(git diff --staged --name-only --diff-filter=AM)
+
+# Check if there are any staged .kt or .java files
+contains_code=0
+for file in $staged_files; do
+    if [[ $file == *.kt || $file == *.java ]]; then
+        contains_code=1
+        break
+    fi
+done
+
+# Run spotlessApply only if relevant files are staged
+if [ "$contains_code" -eq 1 ]; then
+    echo "Running spotlessApply on staged files..."
+    ./gradlew spotlessApply --daemon
+    # Re-add staged files that were modified by spotlessApply
+    for file in $staged_files; do
+        if test -f "$file"; then
+            git add "$file"
+        fi
+    done
+else
+    echo "No Kotlin or Java files staged. Skipping spotlessApply."
+fi
+
+exit 0

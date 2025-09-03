@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.5.5'
 	id 'io.spring.dependency-management' version '1.1.7'
+    id 'com.diffplug.spotless' version '6.25.0'
 }
 
 group = 'dev.n45'
@@ -44,6 +45,28 @@ dependencies {
     implementation 'org.springdoc:springdoc-openapi-ui:1.6.9'
 }
 
+spotless {
+    // Format Java files
+    java {
+        target 'src/main/java/**/*.java', 'src/test/java/**/*.java' // Apply to Java files
+        googleJavaFormat('1.17.0') // Use Google Java Format
+        removeUnusedImports() // Remove unused imports
+        importOrder 'java', 'javax', 'org', 'com', '' // Enforce import order
+        licenseHeader '/* (C) 2025 My Project */' // Optional: Add license header
+    }
+    // Optional: Format Gradle files
+    format 'misc', {
+        target '*.gradle', '*.md', '.gitignore'
+        prettier() // Use Prettier for formatting non-code files
+    }
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+task installGitHook(type: Copy) {
+    from 'scripts/pre-commit' // Assumes pre-commit script is in scripts/
+    into '.git/hooks'
+    fileMode 0775 // Make executable
 }
