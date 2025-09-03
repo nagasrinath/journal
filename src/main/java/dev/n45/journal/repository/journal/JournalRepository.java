@@ -23,5 +23,5 @@ public interface JournalRepository extends JpaRepository<Journal, Long> {
   @Query(
       value = "UPDATE `journal` SET `active` = 0 WHERE external_id=:id AND user_id=:user_id",
       nativeQuery = true)
-  void _deleteJournal(@Param("id") String id, @Param("user_id") String userId);
+  void deleteJournal(@Param("id") String id, @Param("user_id") String userId);
 }

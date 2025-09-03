@@ -52,6 +52,6 @@ public class JournalServiceImpl implements JournalService {
   @Override
   @Transactional
   public void deleteJournalById(String id, String userId) {
-    journalRepository._deleteJournal(id, userId);
+    journalRepository.deleteJournal(id, userId);
   }
 }
