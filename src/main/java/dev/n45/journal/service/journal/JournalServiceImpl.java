@@ -3,6 +3,7 @@ package dev.n45.journal.service.journal;
 
 import java.util.List;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,5 +47,11 @@ public class JournalServiceImpl implements JournalService {
   @Override
   public List<Journal> getAllJournals(String userId) {
     return journalRepository.getJournalsByUserId(userId);
+  }
+
+  @Override
+  @Transactional
+  public void deleteJournalById(String id, String userId) {
+      journalRepository._deleteJournal(id, userId);
   }
 }

@@ -12,4 +12,6 @@ public interface JournalService {
   Journal getJournalById(String id, String userId);
 
   List<Journal> getAllJournals(String userId);
+
+  void deleteJournalById(String id, String userId);
 }
