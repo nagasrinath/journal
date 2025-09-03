@@ -34,7 +34,7 @@ public abstract class BaseEntity {
     protected LocalDateTime createdAt;
 
     @LastModifiedDate
-    @Column(name = "`updated_at`", columnDefinition = "DATETIME NULL DEFAULT NULL", nullable = true)
+    @Column(name = "`updated_at`", columnDefinition = "DATETIME NULL DEFAULT NULL")
     protected LocalDateTime updatedAt;
 
     @Version
@@ -55,7 +55,6 @@ public abstract class BaseEntity {
 
     @PreUpdate
     public void onUpdate() {
-        LocalDateTime timestamp = LocalDateTime.now(ZoneId.systemDefault());
-        this.updatedAt = timestamp;
+        this.updatedAt = LocalDateTime.now(ZoneId.systemDefault());
     }
 }

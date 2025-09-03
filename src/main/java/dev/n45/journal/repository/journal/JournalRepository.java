@@ -9,4 +9,6 @@ public interface JournalRepository extends JpaRepository<Journal, Long> {
     Journal findJournalByExternalId(String externalId);
 
     Iterable<Journal> getJournalsByUserId(String userId);
+
+    Journal findJournalByExternalIdAndUserId(String externalId, String userId);
 }

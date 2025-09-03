@@ -31,8 +31,8 @@ public class JournalServiceImpl implements JournalService {
     }
 
     @Override
-    public Journal getJournalById(String id) {
-        return journalRepository.findJournalByExternalId(id);
+    public Journal getJournalById(String id, String userId) {
+        return journalRepository.findJournalByExternalIdAndUserId(id, userId);
     }
 
     @Override

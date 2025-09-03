@@ -5,6 +5,6 @@ import dev.n45.journal.entity.journal.Journal;
 
 public interface JournalService {
     Journal createJournal(JournalRequest journalRequest, String userId);
-    Journal getJournalById(String id);
+    Journal getJournalById(String id, String userId);
     Iterable<Journal> getAllJournals(String userId);
 }
