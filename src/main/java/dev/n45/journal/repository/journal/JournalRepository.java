@@ -13,11 +13,7 @@ import dev.n45.journal.entity.journal.Journal;
 
 @Repository
 public interface JournalRepository extends JpaRepository<Journal, Long> {
-  Journal findJournalByExternalId(String externalId);
-
   List<Journal> getJournalsByUserId(String userId);
-
-  Journal findJournalByExternalIdAndUserId(String externalId, String userId);
 
   @Modifying
   @Query(
