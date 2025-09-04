@@ -30,9 +30,12 @@ public class JournalController {
   }
 
   @GetMapping("/journals/{id}")
-  public Journal getJournalById(
+  public ResponseEntity<JournalResponse> getJournalById(
       @PathVariable String id, @RequestHeader(name = "X-User-Id") String userId) {
-    return journalService.getJournalById(id, userId);
+    JournalResponse response =
+        new JournalMapper().toJournalResponseList(journalService.getJournalById(id, userId));
+
+    return new ResponseEntity<>(response, HttpStatus.OK);
   }
 
   @GetMapping("/journals")

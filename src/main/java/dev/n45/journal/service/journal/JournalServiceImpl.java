@@ -38,8 +38,8 @@ public class JournalServiceImpl implements JournalService {
   }
 
   @Override
-  public Journal getJournalById(String id, String userId) {
-    return journalRepository.findJournalByExternalIdAndUserId(id, userId);
+  public List<Journal> getJournalById(String id, String userId) {
+    return journalRepository.findJournalsByExternalIdAndUserId(id, userId);
   }
 
   JournalMapper journalMapper = new JournalMapper();
