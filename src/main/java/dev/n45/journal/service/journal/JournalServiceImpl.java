@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import dev.n45.journal.datatype.request.JournalRequest;
 import dev.n45.journal.entity.journal.Journal;
-import dev.n45.journal.mapper.JournalMapper;
 import dev.n45.journal.repository.journal.JournalRepository;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +31,11 @@ public class JournalServiceImpl implements JournalService {
 
     log.info("Journal created: {}", journal);
 
-    journalRepository.save(journal);
+    try {
+      journalRepository.save(journal);
+    } catch (Exception e) {
+      log.error("Error while saving journal: {}", e.getMessage());
+    }
 
     return journal;
   }
@@ -41,8 +44,6 @@ public class JournalServiceImpl implements JournalService {
   public List<Journal> getJournalById(String id, String userId) {
     return journalRepository.findJournalsByExternalIdAndUserId(id, userId);
   }
-
-  JournalMapper journalMapper = new JournalMapper();
 
   @Override
   public List<Journal> getAllJournals(String userId) {
